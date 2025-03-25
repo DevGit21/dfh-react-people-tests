@@ -68,15 +68,14 @@ export function People() {
   const goToLastPage = () => handlePageChange(Math.ceil(totalItems / itemsPerPage));
 
   // Render Table Cells
-  const renderCells = ({ name, show, actor, movies, dob }: Person) => (
-    <>
-      <td>{name}</td>
-      <td>{show}</td>
-      <td>{actor}</td>
-      <td>{dob}</td>
-      <td>{movies.map(({ title }) => title).join(", ")}</td>
-    </>
-  );
+  const renderCells = ({ name, show, actor, movies, dob }: Person): JSX.Element[] => [
+    <td key="name">{name}</td>,
+    <td key="show">{show}</td>,
+    <td key="actor">{actor}</td>,
+    <td key="dob">{dob}</td>,
+    <td key="movies">{movies.map(({ title }) => title).join(", ")}</td>
+];
+
 
   if (loading) return <p>Fetching People...</p>;
   if (error || !people) return <h2>Oops! looks like something went wrong!</h2>;
