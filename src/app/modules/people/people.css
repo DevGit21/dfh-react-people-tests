@@ -17,7 +17,8 @@
   margin-bottom: 20px;
 }
 
-.people-table th, .people-table td {
+.people-table th,
+.people-table td {
   padding: 10px;
   border: 1px solid #ddd;
   text-align: left;
@@ -42,7 +43,8 @@
   align-items: center;
 }
 
-.pagination button, .pagination select {
+.pagination button,
+.pagination select {
   padding: 8px 12px;
   margin: 0 5px;
   font-size: 14px;

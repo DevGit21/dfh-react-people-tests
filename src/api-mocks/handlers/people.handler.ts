@@ -1,4 +1,4 @@
-import { http, delay, HttpResponse } from 'msw';
+import { http, delay, HttpResponse } from "msw";
 
 import { API_RESOURCE } from "../../app/shared/constant";
 import { PEOPLE } from "../fixtures";

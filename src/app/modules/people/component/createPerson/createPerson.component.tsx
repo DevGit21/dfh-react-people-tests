@@ -17,7 +17,9 @@ export function CreatePerson() {
   const [formSuccess, setFormSuccess] = useState<string>("");
 
   // Handle form field changes
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setNewPerson((prev) => ({
       ...prev,
@@ -26,7 +28,11 @@ export function CreatePerson() {
   };
 
   // Handle changes in the movie fields
-  const handleMovieChange = (e: React.ChangeEvent<HTMLInputElement>, index: number, field: "title" | "released") => {
+  const handleMovieChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number,
+    field: "title" | "released",
+  ) => {
     const { value } = e.target;
     setNewPerson((prev) => {
       const updatedMovies = [...prev.movies];
@@ -48,12 +54,16 @@ export function CreatePerson() {
     e.preventDefault();
 
     // validation
-    if (!newPerson.name || !newPerson.show || !newPerson.actor || !newPerson.dob || newPerson.movies.length === 0) {
+    if (
+      !newPerson.name ||
+      !newPerson.show ||
+      !newPerson.actor ||
+      !newPerson.dob ||
+      newPerson.movies.length === 0
+    ) {
       setFormError("All fields are required.");
       return;
     }
-
-
 
     // unique ID
     const newPersonWithId = {
@@ -78,7 +88,12 @@ export function CreatePerson() {
 
   return (
     <div className="create-person-form-container">
-      <form onSubmit={handleSubmit} name="" className="create-person-form" noValidate>
+      <form
+        onSubmit={handleSubmit}
+        name=""
+        className="create-person-form"
+        noValidate
+      >
         <h2>Create New Person</h2>
 
         {/* Display form error */}

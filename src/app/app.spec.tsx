@@ -11,7 +11,7 @@ describe("App", () => {
     renderWithProviders(<App />);
 
     expect(
-      screen.getByRole("heading", { name: APP_HEADING })
+      screen.getByRole("heading", { name: APP_HEADING }),
     ).toBeInTheDocument();
   });
 });

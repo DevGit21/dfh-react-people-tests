@@ -1,7 +1,7 @@
-import { mergeConfig } from 'vite';
-import { configDefaults, defineConfig } from 'vitest/config';
+import { mergeConfig } from "vite";
+import { configDefaults, defineConfig } from "vitest/config";
 
-import viteConfig from './vite.config';
+import viteConfig from "./vite.config";
 
 export default mergeConfig(
   viteConfig,
@@ -10,22 +10,22 @@ export default mergeConfig(
   defineConfig({
     test: {
       globals: true,
-      environment: 'jsdom',
-      setupFiles: './vitest-setup.ts',
+      environment: "jsdom",
+      setupFiles: "./vitest-setup.ts",
       clearMocks: true,
-      reporters: ['default', 'junit'],
+      reporters: ["default", "junit"],
       testTimeout: 10000,
       exclude: [
         ...configDefaults.exclude,
-        'src/bootstrap.ts',
-        'src/main.tsx',
-        '**/api-mocks/**',
+        "src/bootstrap.ts",
+        "src/main.tsx",
+        "**/api-mocks/**",
       ],
       coverage: {
-        provider: 'c8',
-        reporter: ['json', 'lcov', 'text', 'cobertura'],
-        reportsDirectory: 'coverage',
-        exclude: ['src/bootstrap.ts', 'src/main.tsx', '**/api-mocks/**'],
+        provider: "c8",
+        reporter: ["json", "lcov", "text", "cobertura"],
+        reportsDirectory: "coverage",
+        exclude: ["src/bootstrap.ts", "src/main.tsx", "**/api-mocks/**"],
       },
     },
   }),

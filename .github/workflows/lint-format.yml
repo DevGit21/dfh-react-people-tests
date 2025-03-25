@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
+          cache: "yarn"
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
@@ -29,5 +29,5 @@ jobs:
       - name: Run Prettier (Formatting Check)
         run: yarn prettier --check "src/**/*.tsx" "src/**/*.ts"
 
-      - name: Run ESLint (Linting Check)
+      - name: Run Lint
         run: yarn lint

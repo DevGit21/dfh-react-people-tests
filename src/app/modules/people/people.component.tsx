@@ -7,9 +7,11 @@ export function People() {
   const { data: people, loading, error } = usePeopleQuery();
 
   // State for sorting and filtering
-  const [sortOrder, setSortOrder] = useState<'ascending' | 'descending'>('ascending');
-  const [sortColumn, setSortColumn] = useState<string>('name');
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [sortOrder, setSortOrder] = useState<"ascending" | "descending">(
+    "ascending",
+  );
+  const [sortColumn, setSortColumn] = useState<string>("name");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   // State for pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,7 +21,10 @@ export function People() {
 
   // Handle Sorting Logic
   const handleSort = (column: string) => {
-    const newSortOrder = (sortColumn === column && sortOrder === 'ascending') ? 'descending' : 'ascending';
+    const newSortOrder =
+      sortColumn === column && sortOrder === "ascending"
+        ? "descending"
+        : "ascending";
     setSortColumn(column);
     setSortOrder(newSortOrder);
   };
@@ -31,16 +36,20 @@ export function People() {
 
   // Filter people based on the search query
   const filteredPeople = useMemo(() => {
-    return people?.filter(person =>
-      person.name.toLowerCase().includes(searchQuery.toLowerCase())
-    ) || [];
+    return (
+      people?.filter((person) =>
+        person.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      ) || []
+    );
   }, [people, searchQuery]);
 
   // Sort filtered people based on the sort column and order
   const sortedPeople = useMemo(() => {
     return filteredPeople.sort((a, b) => {
-      if (sortColumn === 'name') {
-        return sortOrder === 'ascending' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+      if (sortColumn === "name") {
+        return sortOrder === "ascending"
+          ? a.name.localeCompare(b.name)
+          : b.name.localeCompare(a.name);
       }
       return 0; // Default no sorting for other columns
     });
@@ -52,30 +61,41 @@ export function People() {
     setCurrentPage(page);
   };
 
-  const handleItemsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleItemsPerPageChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
     setItemsPerPage(Number(event.target.value));
     setCurrentPage(1); // Reset to the first page when items per page is changed
   };
 
   const indexOfLastPerson = currentPage * itemsPerPage;
   const indexOfFirstPerson = indexOfLastPerson - itemsPerPage;
-  const currentPeople = sortedPeople.slice(indexOfFirstPerson, indexOfLastPerson);
+  const currentPeople = sortedPeople.slice(
+    indexOfFirstPerson,
+    indexOfLastPerson,
+  );
 
   // Pagination Button Handlers
   const goToNextPage = () => handlePageChange(currentPage + 1);
   const goToPreviousPage = () => handlePageChange(currentPage - 1);
   const goToFirstPage = () => handlePageChange(1);
-  const goToLastPage = () => handlePageChange(Math.ceil(totalItems / itemsPerPage));
+  const goToLastPage = () =>
+    handlePageChange(Math.ceil(totalItems / itemsPerPage));
 
   // Render Table Cells
-  const renderCells = ({ name, show, actor, movies, dob }: Person): JSX.Element[] => [
+  const renderCells = ({
+    name,
+    show,
+    actor,
+    movies,
+    dob,
+  }: Person): JSX.Element[] => [
     <td key="name">{name}</td>,
     <td key="show">{show}</td>,
     <td key="actor">{actor}</td>,
     <td key="dob">{dob}</td>,
-    <td key="movies">{movies.map(({ title }) => title).join(", ")}</td>
-];
-
+    <td key="movies">{movies.map(({ title }) => title).join(", ")}</td>,
+  ];
 
   if (loading) return <p>Fetching People...</p>;
   if (error || !people) return <h2>Oops! looks like something went wrong!</h2>;
@@ -95,7 +115,11 @@ export function People() {
       <table className="people-table">
         <thead>
           <tr>
-            <th onClick={() => handleSort('name')} role="columnheader" aria-sort={sortColumn === 'name' ? sortOrder : 'none'}>
+            <th
+              onClick={() => handleSort("name")}
+              role="columnheader"
+              aria-sort={sortColumn === "name" ? sortOrder : "none"}
+            >
               Name
             </th>
             <th>Show</th>
@@ -113,16 +137,36 @@ export function People() {
 
       {/* Pagination Controls */}
       <div className="pagination">
-        <button onClick={goToFirstPage} disabled={currentPage === 1}>First</button>
-        <button onClick={goToPreviousPage} disabled={currentPage === 1}>Previous</button>
-        <button onClick={goToNextPage} disabled={currentPage === Math.ceil(totalItems / itemsPerPage)}>Next</button>
-        <button onClick={goToLastPage} disabled={currentPage === Math.ceil(totalItems / itemsPerPage)}>Last</button>
+        <button onClick={goToFirstPage} disabled={currentPage === 1}>
+          First
+        </button>
+        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <button
+          onClick={goToNextPage}
+          disabled={currentPage === Math.ceil(totalItems / itemsPerPage)}
+        >
+          Next
+        </button>
+        <button
+          onClick={goToLastPage}
+          disabled={currentPage === Math.ceil(totalItems / itemsPerPage)}
+        >
+          Last
+        </button>
 
         <span>
-          Showing {indexOfFirstPerson + 1}-{Math.min(indexOfLastPerson, totalItems)} of {totalItems}
+          Showing {indexOfFirstPerson + 1}-
+          {Math.min(indexOfLastPerson, totalItems)} of {totalItems}
         </span>
 
-        <select onChange={handleItemsPerPageChange} value={itemsPerPage} className="items-per-page-select" role="combobox">
+        <select
+          onChange={handleItemsPerPageChange}
+          value={itemsPerPage}
+          className="items-per-page-select"
+          role="combobox"
+        >
           <option value="10">10</option>
           <option value="15">15</option>
           <option value="20">20</option>

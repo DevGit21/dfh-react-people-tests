@@ -1,49 +1,48 @@
 .create-person-form-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .create-person-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
-  }
-  
-  .create-person-form h2 {
-    text-align: center;
-  }
-  
-  .create-person-form label {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .create-person-form input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-  }
-  
-  .create-person-form .form-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-  }
-  
-  .create-person-form button {
-    padding: 10px 15px;
-    cursor: pointer;
-  }
-  
-  .create-person-form button[type="button"] {
-    background-color: #ccc;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-person-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.create-person-form h2 {
+  text-align: center;
+}
+
+.create-person-form label {
+  display: block;
+  margin-top: 10px;
+}
+
+.create-person-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.create-person-form .form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.create-person-form button {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.create-person-form button[type="button"] {
+  background-color: #ccc;
+}
