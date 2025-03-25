@@ -4,8 +4,7 @@ import { configDefaults, defineConfig } from "vitest/config";
 import viteConfig from "./vite.config";
 
 export default mergeConfig(
-  viteConfig,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  viteConfig,   
   // @ts-expect-error
   defineConfig({
     test: {

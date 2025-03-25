@@ -66,10 +66,10 @@ export function CreatePerson() {
     }
 
     // unique ID
-    const newPersonWithId = {
+    /* const newPersonWithId = {
       ...newPerson,
       id: `${newPerson.name.toLowerCase().replace(/ /g, "_")}-${Date.now()}`,
-    };
+    }; */
 
     setFormSuccess("Person created successfully!");
 
