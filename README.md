@@ -1,13 +1,16 @@
 🚀 **Project Setup**
+
 This repository contains a **React** application built with **Vite** and **TypeScript**. The project follows **Test-Driven Development (TDD)** principles, ensuring high code quality with unit tests.
 
 📌 **Prerequisites**
+
 Before you begin, ensure you have the following installed:
 
 Node.js (Recommended: LTS version)
 Yarn (Install via npm install -g yarn)
 
 🛠️ **Getting Started**
+
 1️⃣ Clone the Repository
 Clone the project repository from GitHub:
 git clone https://github.com/DevGit21/dfh-react-people-tests.git
@@ -30,6 +33,7 @@ To check test results visually, open:
 🔗 http://localhost:51204/__vitest__/
 
 🧹 **Code Quality and Linting**
+
 Ensure your code follows best practices with ESLint and Prettier:
 yarn lint       # Check for linting issues  
 yarn lint --fix # Auto-fix issues  
