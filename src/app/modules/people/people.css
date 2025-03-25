@@ -1,0 +1,61 @@
+.people-container {
+  padding: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.people-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.people-table th, .people-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.people-table th {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+.people-table th[aria-sort="ascending"]:after {
+  content: " ↑";
+}
+
+.people-table th[aria-sort="descending"]:after {
+  content: " ↓";
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination button, .pagination select {
+  padding: 8px 12px;
+  margin: 0 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.pagination button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+}
